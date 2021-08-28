@@ -22,7 +22,7 @@ public class VendaServiceTests {
 	
 	@Test
 	void vendaServiceCadastrarVendaTestOK() {
-		Venda venda = vendaService.cadastrarVenda(1L, new BigDecimal("9500.00"), "notebook");
+		Venda venda = vendaService.cadastrarVenda(1L, new BigDecimal("9500.00"), "DESKTOP");
 		
 	    assertNotNull(venda.getId());
 		

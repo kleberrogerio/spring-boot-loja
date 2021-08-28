@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 package br.gov.sp.fatec.springbootloja.entity;
-
-public class Venda {
-
-=======
-package br.edu.fatecsjc.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -87,5 +81,4 @@ public class Venda {
 	public void setProdutos(Set<Produto> produtos) {
 		this.produtos = produtos;
 	}
->>>>>>> 3d6f07463dbd4f0d4bdd810f6d7be69998634763
 }

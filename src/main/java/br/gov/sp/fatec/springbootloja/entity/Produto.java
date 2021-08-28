@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 package br.gov.sp.fatec.springbootloja.entity;
-
-public class Produto {
-
-=======
-package br.edu.fatecsjc.entity;
 
 import java.math.BigDecimal;
 import java.util.Set;
@@ -81,5 +75,4 @@ public class Produto {
 	public void setMarca(Marca marca) {
 		this.marca = marca;
 	}
->>>>>>> 3d6f07463dbd4f0d4bdd810f6d7be69998634763
 }

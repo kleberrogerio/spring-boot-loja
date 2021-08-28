@@ -1,17 +1,18 @@
-package br.edu.fatecsjc.service;
+package br.gov.sp.fatec.springbootloja.service;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.gov.sp.fatec.springbootloja.entity.Produto;
+import br.gov.sp.fatec.springbootloja.entity.Venda;
+import br.gov.sp.fatec.springbootloja.repository.ProdutoRepository;
+import br.gov.sp.fatec.springbootloja.repository.VendaRepository;
 
-import br.edu.fatecsjc.entity.Produto;
-import br.edu.fatecsjc.entity.Venda;
-import br.edu.fatecsjc.repository.ProdutoRepository;
-import br.edu.fatecsjc.repository.VendaRepository;
 
 @Service("vendaService")
 public class VendaServiceImpl implements VendaService {

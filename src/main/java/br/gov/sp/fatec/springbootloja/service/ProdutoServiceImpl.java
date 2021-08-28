@@ -1,4 +1,4 @@
-package br.edu.fatecsjc.service;
+package br.gov.sp.fatec.springbootloja.service;
 
 import java.math.BigDecimal;
 

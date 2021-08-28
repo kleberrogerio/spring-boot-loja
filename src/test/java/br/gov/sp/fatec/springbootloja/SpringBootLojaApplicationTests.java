@@ -1,4 +1,4 @@
-package br.edu.fatecsjc;
+package br.gov.sp.fatec.springbootloja;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -10,10 +10,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.edu.fatecsjc.entity.Marca;
-import br.edu.fatecsjc.entity.Produto;
-import br.edu.fatecsjc.repository.MarcaRepository;
-import br.edu.fatecsjc.repository.ProdutoRepository;
+import br.gov.sp.fatec.springbootloja.entity.Marca;
+import br.gov.sp.fatec.springbootloja.entity.Produto;
+import br.gov.sp.fatec.springbootloja.repository.ProdutoRepository;
+
+
 
 @SpringBootTest
 @Transactional

@@ -1,8 +1,9 @@
-package br.edu.fatecsjc.service;
+package br.gov.sp.fatec.springbootloja.service;
 
 import java.math.BigDecimal;
 
-import br.edu.fatecsjc.entity.Produto;
+import br.gov.sp.fatec.springbootloja.entity.Produto;
+
 
 public interface ProdutoService {
 	

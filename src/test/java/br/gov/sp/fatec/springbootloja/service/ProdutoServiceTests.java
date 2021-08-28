@@ -1,16 +1,16 @@
-package br.edu.fatecsjc.service;
-
+package br.gov.sp.fatec.springbootloja.service;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.edu.fatecsjc.entity.Produto;
+import br.gov.sp.fatec.springbootloja.entity.Produto;
+
 
 @SpringBootTest
 @Transactional

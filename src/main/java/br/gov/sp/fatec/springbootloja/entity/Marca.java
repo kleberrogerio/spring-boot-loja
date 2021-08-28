@@ -1,9 +1,5 @@
 package br.gov.sp.fatec.springbootloja.entity;
 
-<<<<<<< HEAD
-public class Marca {
-
-=======
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -53,5 +49,4 @@ public class Marca {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
->>>>>>> 3d6f07463dbd4f0d4bdd810f6d7be69998634763
 }

@@ -2,7 +2,7 @@ package br.gov.sp.fatec.springbootloja.service;
 
 import java.math.BigDecimal;
 
-import br.edu.fatecsjc.entity.Venda;
+import br.gov.sp.fatec.springbootloja.entity.Venda;
 
 public interface VendaService {
 	

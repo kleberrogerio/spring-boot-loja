@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.gov.sp.fatec.springbootloja.entity.Marca;
 import br.gov.sp.fatec.springbootloja.entity.Produto;
+import br.gov.sp.fatec.springbootloja.repository.MarcaRepository;
 import br.gov.sp.fatec.springbootloja.repository.ProdutoRepository;
 
 

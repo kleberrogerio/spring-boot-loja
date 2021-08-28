@@ -2,15 +2,16 @@ package br.gov.sp.fatec.springbootloja.service;
 
 import java.math.BigDecimal;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.edu.fatecsjc.entity.Marca;
-import br.edu.fatecsjc.entity.Produto;
-import br.edu.fatecsjc.repository.MarcaRepository;
-import br.edu.fatecsjc.repository.ProdutoRepository;
+import br.gov.sp.fatec.springbootloja.entity.Marca;
+import br.gov.sp.fatec.springbootloja.entity.Produto;
+import br.gov.sp.fatec.springbootloja.repository.MarcaRepository;
+import br.gov.sp.fatec.springbootloja.repository.ProdutoRepository;
+
+
 
 @Service("produtoService")
 public class ProdutoServiceImpl implements ProdutoService {
@@ -25,6 +26,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 	@Transactional
 	public Produto cadastrarProduto(String nome, BigDecimal preco, String nomeMarca) {
 		Marca marca = marcaRepo.findByNome(nomeMarca);
+		
 				
 	    if(marca == null) {
 	    	marca = new Marca();

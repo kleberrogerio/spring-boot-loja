@@ -26,7 +26,7 @@ public class VendaServiceImpl implements VendaService {
 	@Override
 	@Transactional
 	public Venda cadastrarVenda(Long qtde, BigDecimal preco, String nomeProduto) {
-		Produto produto = produtoRepo.findByNome(nomeProduto);
+		Produto produto = produtoRepo.findByNomeIgnoreCase(nomeProduto);
 		
 	    if(produto != null) {
 	    	Venda venda = new Venda(); 

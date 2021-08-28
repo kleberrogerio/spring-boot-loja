@@ -6,6 +6,6 @@ import br.gov.sp.fatec.springbootloja.entity.Marca;
 
 public interface MarcaRepository extends JpaRepository<Marca, Long> {
 
-    public  Marca findByNome(String nome);
+    public Marca findByNomeIgnoreCase(String nome);
    
 }

@@ -10,6 +10,7 @@ import br.gov.sp.fatec.springbootloja.entity.Marca;
 import br.gov.sp.fatec.springbootloja.entity.Produto;
 import br.gov.sp.fatec.springbootloja.repository.MarcaRepository;
 import br.gov.sp.fatec.springbootloja.repository.ProdutoRepository;
+import java.util.List;
 
 
 
@@ -24,9 +25,8 @@ public class ProdutoServiceImpl implements ProdutoService {
 	
 	@Override
 	@Transactional
-	public Produto cadastrarProduto(String nome, BigDecimal preco, String nomeMarca) {
-		Marca marca = marcaRepo.findByNome(nomeMarca);
-		
+    public Produto cadastrarProduto(String nome, BigDecimal preco, String nomeMarca) {
+        Marca marca = marcaRepo.findByNomeIgnoreCase(nomeMarca);
 				
 	    if(marca == null) {
 	    	marca = new Marca();
@@ -39,42 +39,40 @@ public class ProdutoServiceImpl implements ProdutoService {
 		produto.setMarca(marca);
 		produtoRepo.save(produto);
 		return produto;		
-	}
+    }
 
-	@Override
-	public Produto atualizarProduto(String nome, BigDecimal preco, String nomeMarca) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Produto excluirPorNomeProduto(String nome) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Produto excluirPorIdProduto(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+    @Override
+	public void excluirPorIdProduto(Long id) {
+		Produto produto = produtoRepo.findById(id).get();
+		if(produto != null) {
+			produtoRepo.delete(produto);
+			}
 	}
 
 	@Override
 	public Produto pesquisarPorNomeProduto(String nome) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Produto pesquisarPorIdProduto(Long id) {
-		// TODO Auto-generated method stub
+		Produto produto = produtoRepo.findById(id).get();
+		return produto;
+	}
+
+	@Override
+	public List<Produto> pesquisarTodosProdutos() {
+		return produtoRepo.findAll();
+	}
+
+	@Override
+	public Produto atualizarProduto(String nome, BigDecimal preco, String nomeMarca) {
 		return null;
 	}
 
 	@Override
-	public Produto pesquisarTodosProduto() {
-		// TODO Auto-generated method stub
+	public Produto atualizarProduto(Long id, String nome, BigDecimal preco, String nomeMarca) {
 		return null;
-	}
+	}  
 	
 }

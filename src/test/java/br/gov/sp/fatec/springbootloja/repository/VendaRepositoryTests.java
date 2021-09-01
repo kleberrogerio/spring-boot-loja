@@ -5,14 +5,18 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
-import br.gov.sp.fatec.springbootloja.entity.Venda;
-import br.gov.sp.fatec.springbootloja.entity.Produto;
+
 import br.gov.sp.fatec.springbootloja.entity.Marca;
+import br.gov.sp.fatec.springbootloja.entity.Produto;
+import br.gov.sp.fatec.springbootloja.entity.Venda;
 import br.gov.sp.fatec.springbootloja.service.VendaService;
 
 @SpringBootTest
@@ -66,6 +70,14 @@ public class VendaRepositoryTests {
         vendaRepo.save(venda);
 
 		assertNotNull(venda.getId());
+    }
+    @Test
+	void testaVendaInsercaoTestNoOk() {
+        Assertions.assertThrows(DataIntegrityViolationException.class, ()->
+        	{
+                Venda venda = new Venda();
+                vendaRepo.save(venda);
+            });
     }
     
 }

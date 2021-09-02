@@ -27,4 +27,37 @@ public class ProdutoServiceTests {
 	    assertNotNull(produto.getId());
 		
 	}
+    
+	/*
+	@Test
+	void produtoServiceExcluirProdutoTestOK() {
+		Produto produto = produtoService.cadastrarProduto("Iphone", new BigDecimal("9500.00"), "Apple");
+		
+	    assertNotNull(produto.getId());
+		
+	}*/
+    
+	/* Implementar
+	@Test
+	void produtoServiceAtualizaTestOK(){
+		Marca marca = new Marca();
+		marca.setNome("IBM");
+		marcaRepo.save(marca);
+
+		marcaService.atualizarMarca(marca.getId(), "Oracle");
+
+		assertEquals("Oracle",marca.getNome());
+	}
+
+
+	@Test
+	void produtoServicePesquisarPorNomeTestOK(){
+		Marca marca = new Marca();
+		marca.setNome("IBM");
+		marcaRepo.save(marca);
+
+		marcaService.atualizarMarca(marca.getId(), "Oracle");
+
+		assertEquals("Oracle",marca.getNome());
+	}*/
 }

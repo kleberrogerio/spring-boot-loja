@@ -1,8 +1,6 @@
 package br.gov.sp.fatec.springbootloja.service;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.math.BigDecimal;
 
@@ -46,18 +44,14 @@ public class ProdutoServiceTests {
 	}
 		
     
-	/* Implementar
 	@Test
 	void produtoServiceAtualizaTestOK(){
-		Marca marca = new Marca();
-		marca.setNome("IBM");
-		marcaRepo.save(marca);
-
-		marcaService.atualizarMarca(marca.getId(), "Oracle");
-
-		assertEquals("Oracle",marca.getNome());
+		Produto produto = produtoService.cadastrarProduto("Iphone", new BigDecimal("9500.00"), "Apple");
+		produtoService.atualizarProduto(produto.getId(),"Zenfone", new BigDecimal("3500.00"), "Asus");
+		
+		assertNull(produtoService.pesquisarPorNomeProduto("Zenfone"));
 	}
 
 
-	*/
+	
 }

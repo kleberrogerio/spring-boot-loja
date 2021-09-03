@@ -51,7 +51,8 @@ public class ProdutoServiceImpl implements ProdutoService {
 
 	@Override
 	public Produto pesquisarPorNomeProduto(String nome) {
-		return null;
+		Produto produto = produtoRepo.findByNomeIgnoreCase(nome);
+		return produto;
 	}
 
 	@Override

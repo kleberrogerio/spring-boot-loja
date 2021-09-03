@@ -1,5 +1,8 @@
 package br.gov.sp.fatec.springbootloja.service;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.math.BigDecimal;
 
@@ -27,15 +30,21 @@ public class ProdutoServiceTests {
 	    assertNotNull(produto.getId());
 		
 	}
-    
-	/*
+    @Test
+	void produtoServicePesquisarPorNomeTestOK(){
+		Produto produto = produtoService.cadastrarProduto("Iphone", new BigDecimal("9500.00"), "Apple");
+		assertNotNull(produtoService.pesquisarPorNomeProduto("Iphone"));		
+	}
+	
 	@Test
 	void produtoServiceExcluirProdutoTestOK() {
-		Produto produto = produtoService.cadastrarProduto("Iphone", new BigDecimal("9500.00"), "Apple");
+	Produto produto = produtoService.cadastrarProduto("Iphone", new BigDecimal("9500.00"), "Apple");
+	produtoService.excluirPorIdProduto(produto.getId());
+
+	assertNull(produtoService.pesquisarPorNomeProduto("Iphone"));
+
+	}
 		
-	    assertNotNull(produto.getId());
-		
-	}*/
     
 	/* Implementar
 	@Test
@@ -50,14 +59,5 @@ public class ProdutoServiceTests {
 	}
 
 
-	@Test
-	void produtoServicePesquisarPorNomeTestOK(){
-		Marca marca = new Marca();
-		marca.setNome("IBM");
-		marcaRepo.save(marca);
-
-		marcaService.atualizarMarca(marca.getId(), "Oracle");
-
-		assertEquals("Oracle",marca.getNome());
-	}*/
+	*/
 }

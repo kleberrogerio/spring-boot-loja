@@ -30,7 +30,7 @@ public class ProdutoServiceTests {
 	}
     @Test
 	void produtoServicePesquisarPorNomeTestOK(){
-		Produto produto = produtoService.cadastrarProduto("Iphone", new BigDecimal("9500.00"), "Apple");
+		produtoService.cadastrarProduto("Iphone", new BigDecimal("9500.00"), "Apple");
 		assertNotNull(produtoService.pesquisarPorNomeProduto("Iphone"));		
 	}
 	

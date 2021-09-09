@@ -16,7 +16,7 @@ import br.gov.sp.fatec.springbootloja.entity.Produto;
 @SpringBootTest
 @Transactional
 @Rollback
-public class ProdutoRepsitoryTests {
+public class ProdutoRepositoryTests {
 
     @Autowired
 	private ProdutoRepository produtoRepo;

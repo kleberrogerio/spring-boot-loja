@@ -1,7 +1,10 @@
 package br.gov.sp.fatec.springbootloja.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import br.gov.sp.fatec.springbootloja.entity.Marca;
 import br.gov.sp.fatec.springbootloja.repository.MarcaRepository;
 
@@ -29,6 +32,11 @@ public class MarcaServiceImpl implements MarcaService{
         marca.setNome(nome);
         marcaRepo.save(marca);
         return marca;
+    }
+
+    @Override
+    public List<Marca> buscarTodasMarcas(){
+        return marcaRepo.findAll();
     }
     
 }

@@ -13,4 +13,8 @@ public interface MarcaService {
     public Marca atualizarMarca (Long id, String nome);
     
     public List<Marca> buscarTodasMarcas();
+
+    public Marca buscarMarcaPorId(Long id);
+
+    public Marca buscarMarcaPorNome(String nome);
 }

@@ -1,6 +1,7 @@
 package br.gov.sp.fatec.springbootloja.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,24 @@ public class MarcaServiceImpl implements MarcaService{
     @Override
     public List<Marca> buscarTodasMarcas(){
         return marcaRepo.findAll();
+    }
+
+    @Override
+    public Marca buscarMarcaPorId(Long id){
+        Optional<Marca> marcaOp = marcaRepo.findById(id);
+        if(marcaOp.isPresent()){
+            return marcaOp.get();
+        }
+        throw new RuntimeException("Marca não encontrada!");
+    }
+
+    @Override
+    public Marca buscarMarcaPorNome(String nome){
+        Marca marca = marcaRepo.findByNomeIgnoreCase(nome);
+        if(marca !=null){
+           return marca; 
+        }
+        throw new RuntimeException("Marca não encontrada");
     }
     
 }

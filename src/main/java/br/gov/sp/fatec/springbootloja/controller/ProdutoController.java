@@ -2,6 +2,8 @@ package br.gov.sp.fatec.springbootloja.controller;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +29,7 @@ public class ProdutoController {
         return produtoService.pesquisarTodosProdutos();
     }
     
+    @JsonView(View.ProdutoResumo.class)
     @GetMapping(value = "/nome")
     public Produto buscarProdutoPorNome(@RequestParam(value = "nome") String nome) {
         return produtoService.pesquisarPorNomeProduto(nome);        

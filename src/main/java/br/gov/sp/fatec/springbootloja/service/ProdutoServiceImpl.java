@@ -52,7 +52,10 @@ public class ProdutoServiceImpl implements ProdutoService {
 	@Override
 	public Produto pesquisarPorNomeProduto(String nome) {
 		Produto produto = produtoRepo.findByNomeIgnoreCase(nome);
-		return produto;
+		if(produto!=null){
+			return produto;
+		}
+		throw new RuntimeException("Produto não encontrado!");		
 	}
 
 	@Override

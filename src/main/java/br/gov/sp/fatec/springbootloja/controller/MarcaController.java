@@ -18,32 +18,29 @@ import br.gov.sp.fatec.springbootloja.service.MarcaService;
 @RestController
 @RequestMapping(value = "/marca")
 @CrossOrigin
-public class MarcaController{
+public class MarcaController {
 
     @Autowired
     private MarcaService marcaService;
 
     @GetMapping
-    public List<Marca> buscarTodos(){
+    public List<Marca> buscarTodos() {
         return marcaService.buscarTodasMarcas();
     }
 
     @GetMapping(value = "/{id}")
-    public Marca buscarPorId(@PathVariable("id") Long id){
+    public Marca buscarPorId(@PathVariable("id") Long id) {
         return marcaService.buscarMarcaPorId(id);
     }
 
-    @GetMapping(value="/nome")
-    public Marca buscarMarcaPorNome(@RequestParam(value="nome") String nome){
+    @GetMapping(value = "/nome")
+    public Marca buscarMarcaPorNome(@RequestParam(value = "nome") String nome) {
         return marcaService.buscarMarcaPorNome(nome);
     }
 
-   /* @PostMapping
-    public Marca cadastrarNovaMarca(@RequestBody Marca nome){
-        return marcaService.criarMarca(marca.getNome,)
-
-    }*/
-
-
+    @PostMapping
+    public Marca cadastrarNovaMarca(@RequestBody Marca marca){
+        return marcaService.cadastrarNovaMarca(marca.getNome());
+    }
 
 }

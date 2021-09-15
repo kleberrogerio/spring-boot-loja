@@ -17,4 +17,7 @@ public interface MarcaService {
     public Marca buscarMarcaPorId(Long id);
 
     public Marca buscarMarcaPorNome(String nome);
+
+    public Marca cadastrarNovaMarca(String nome);   
+    
 }

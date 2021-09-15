@@ -57,5 +57,11 @@ public class MarcaServiceImpl implements MarcaService{
         }
         throw new RuntimeException("Marca não encontrada");
     }
-    
+
+    public Marca cadastrarNovaMarca(String nome){
+        Marca marca = new Marca();
+		marca.setNome(nome);
+        marcaRepo.save(marca);
+        return marca; 
+    }   
 }

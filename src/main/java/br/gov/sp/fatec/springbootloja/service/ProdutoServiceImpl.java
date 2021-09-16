@@ -22,13 +22,13 @@ public class ProdutoServiceImpl implements ProdutoService {
 	@Autowired
 	private ProdutoRepository produtoRepo;
 
-	//@Autowired
-  //  private MarcaService marcaService;
+	@Autowired
+    private MarcaService marcaService;
 	
 	@Override
 	@Transactional
     public Produto cadastrarProduto(String nome,Long idMarca, BigDecimal preco) {
-        //Marca marca = marcaService.buscarMarcaPorId(idMarca);
+        Marca marca = marcaService.buscarMarcaPorId(idMarca);
 		//Marca marca = marcaRepo.findById(idMarca);
 				
 	    //if(marca == null) {
@@ -39,6 +39,8 @@ public class ProdutoServiceImpl implements ProdutoService {
 		Produto produto = new Produto(); 
 		produto.setNome(nome);
 		produto.setPreco(preco);
+		produto.setMarca(marca);
+		marca.setId(idMarca);
 		produto.getMarca().getId();
 		produtoRepo.save(produto);
 		return produto;		

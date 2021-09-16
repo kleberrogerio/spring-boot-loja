@@ -16,7 +16,6 @@ import br.gov.sp.fatec.springbootloja.entity.Produto;
 import br.gov.sp.fatec.springbootloja.service.ProdutoService;
 
 
-
 @RestController
 @RequestMapping(value = "/produto")
 @CrossOrigin
@@ -37,6 +36,6 @@ public class ProdutoController {
 
     @PostMapping
     public Produto cadastrarNovoProduto(@RequestBody Produto produto,@RequestBody Marca marca){
-        return produtoService.cadastrarProduto(produto.getNome(), marca.getId(),produto.getPreco());   
+        return produtoService.cadastrarProduto(produto.getNome(), produto.getPreco(), marca.getNome());   
     }
 }

@@ -21,31 +21,22 @@ public class ProdutoServiceTests {
 	@Autowired
 	private ProdutoService produtoService;
 	
-	/*Conservando o teste anterior
 	@Test
 	void produtoServiceCadastrarProdutoTestOK() {
 		Produto produto = produtoService.cadastrarProduto("Iphone", new BigDecimal("9500.00"), "Apple");
 		
-	    assertNotNull(produto.getId());		
-	}
-*/
-/*Parando os testes de produto momentaneamente
-	@Test
-	void produtoServiceCadastrarProdutoTestOK() {
-		Produto produto = produtoService.cadastrarProduto("Iphone",1L, new BigDecimal("9500.00"));
+	    assertNotNull(produto.getId());
 		
-	    assertNotNull(produto.getId());		
 	}
-
     @Test
 	void produtoServicePesquisarPorNomeTestOK(){
-		produtoService.cadastrarProduto("Iphone",1L, new BigDecimal("9500.00"));
+		produtoService.cadastrarProduto("Iphone", new BigDecimal("9500.00"), "Apple");
 		assertNotNull(produtoService.pesquisarPorNomeProduto("Iphone"));		
 	}
 	
 	@Test
 	void produtoServiceExcluirProdutoTestOK() {
-	Produto produto = produtoService.cadastrarProduto("Iphone",1L, new BigDecimal("9500.00"));
+	Produto produto = produtoService.cadastrarProduto("Iphone", new BigDecimal("9500.00"), "Apple");
 	produtoService.excluirPorIdProduto(produto.getId());
 
 	assertNull(produtoService.pesquisarPorNomeProduto("Iphone"));
@@ -55,10 +46,12 @@ public class ProdutoServiceTests {
     
 	@Test
 	void produtoServiceAtualizaTestOK(){
-		Produto produto = produtoService.cadastrarProduto("Iphone",1L, new BigDecimal("9500.00"));
+		Produto produto = produtoService.cadastrarProduto("Iphone", new BigDecimal("9500.00"), "Apple");
 		produtoService.atualizarProduto(produto.getId(),"Zenfone", new BigDecimal("3500.00"), "Asus");
 		
 		assertNull(produtoService.pesquisarPorNomeProduto("Zenfone"));
 	}
-	*/
+
+
+	
 }

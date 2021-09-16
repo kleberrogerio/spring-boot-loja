@@ -7,7 +7,10 @@ import br.gov.sp.fatec.springbootloja.entity.Produto;
 
 public interface ProdutoService {
 	
+	/*Preservando o anterior
 	public Produto cadastrarProduto (String nome, BigDecimal preco, String nomeMarca);
+*/
+	public Produto cadastrarProduto (String nome, Long idMarca,BigDecimal preco);
 	
 	public Produto atualizarProduto (String nome, BigDecimal preco, String nomeMarca);
 	

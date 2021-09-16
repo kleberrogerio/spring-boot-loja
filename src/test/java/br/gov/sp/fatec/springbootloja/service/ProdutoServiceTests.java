@@ -29,14 +29,14 @@ public class ProdutoServiceTests {
 	    assertNotNull(produto.getId());		
 	}
 */
-/*Parando os testes de produto momentaneamente
+
 	@Test
 	void produtoServiceCadastrarProdutoTestOK() {
 		Produto produto = produtoService.cadastrarProduto("Iphone",1L, new BigDecimal("9500.00"));
 		
 	    assertNotNull(produto.getId());		
 	}
-
+/*Parando os testes de produto momentaneamente
     @Test
 	void produtoServicePesquisarPorNomeTestOK(){
 		produtoService.cadastrarProduto("Iphone",1L, new BigDecimal("9500.00"));

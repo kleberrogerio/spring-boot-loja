@@ -36,13 +36,13 @@ public class ProdutoServiceTests {
 		
 	    assertNotNull(produto.getId());		
 	}
-/*Parando os testes de produto momentaneamente
-    @Test
+
+	@Test
 	void produtoServicePesquisarPorNomeTestOK(){
 		produtoService.cadastrarProduto("Iphone",1L, new BigDecimal("9500.00"));
 		assertNotNull(produtoService.pesquisarPorNomeProduto("Iphone"));		
 	}
-	
+	/*
 	@Test
 	void produtoServiceExcluirProdutoTestOK() {
 	Produto produto = produtoService.cadastrarProduto("Iphone",1L, new BigDecimal("9500.00"));
@@ -59,6 +59,6 @@ public class ProdutoServiceTests {
 		produtoService.atualizarProduto(produto.getId(),"Zenfone", new BigDecimal("3500.00"), "Asus");
 		
 		assertNull(produtoService.pesquisarPorNomeProduto("Zenfone"));
-	}
-	*/
+	}*/
+
 }

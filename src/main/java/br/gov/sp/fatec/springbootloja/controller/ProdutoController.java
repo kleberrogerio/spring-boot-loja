@@ -36,7 +36,7 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public Produto cadastrarNovoProduto(@RequestBody Produto produto,@RequestBody Marca marca){
-        return produtoService.cadastrarNovoProduto(produto.getNome(), marca.getId(),produto.getPreco());   
+    public Produto cadastrarNovoProduto(@RequestBody Produto produto){
+        return produtoService.cadastrarNovoProduto(produto.getNome(), produto.getMarca().getId(),produto.getPreco());   
     }
 }

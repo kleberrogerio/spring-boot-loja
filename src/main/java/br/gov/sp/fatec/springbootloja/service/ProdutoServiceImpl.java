@@ -24,6 +24,9 @@ public class ProdutoServiceImpl implements ProdutoService {
 
 	@Autowired
     private MarcaService marcaService;
+
+	@Autowired
+	private ProdutoService produtoService;    
 	
 	@Override
 	@Transactional
@@ -69,7 +72,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     @Override
 	public void excluirPorIdProduto(Long id) {
-		Produto produto = produtoRepo.findById(id).get();
+		Produto produto = produtoService.pesquisarPorIdProduto(id);		
 		if(produto != null) {
 			produtoRepo.delete(produto);
 			}
@@ -81,7 +84,8 @@ public class ProdutoServiceImpl implements ProdutoService {
 		if(produto!=null){
 			return produto;
 		}
-		throw new RuntimeException("Produto não encontrado!");		
+		return null;
+		//throw new RuntimeException("Produto não encontrado!");		
 	}
 
 	@Override

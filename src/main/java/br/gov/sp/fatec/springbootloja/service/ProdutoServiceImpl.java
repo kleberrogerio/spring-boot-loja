@@ -30,7 +30,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 	
 	@Override
 	@Transactional
-    public Produto cadastrarProduto(String nome,Long idMarca, BigDecimal preco) {
+    public Produto cadastrarNovoProduto(String nome,Long idMarca, BigDecimal preco) {
         Marca marca = marcaService.buscarMarcaPorId(idMarca);
 		//Marca marca = marcaRepo.findById(idMarca);
 				

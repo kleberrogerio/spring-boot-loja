@@ -32,20 +32,20 @@ public class ProdutoServiceTests {
 
 	@Test
 	void produtoServiceCadastrarProdutoTestOK() {
-		Produto produto = produtoService.cadastrarProduto("Iphone",1L, new BigDecimal("9500.00"));
+		Produto produto = produtoService.cadastrarNovoProduto("Iphone",1L, new BigDecimal("9500.00"));
 		
 	    assertNotNull(produto.getId());		
 	}
 
 	@Test
 	void produtoServicePesquisarPorNomeTestOK(){
-		produtoService.cadastrarProduto("Iphone",1L, new BigDecimal("9500.00"));
+		produtoService.cadastrarNovoProduto("Iphone",1L, new BigDecimal("9500.00"));
 		assertNotNull(produtoService.pesquisarPorNomeProduto("Iphone"));		
 	}
 	
 	@Test
 	void produtoServiceExcluirProdutoTestOK() {
-	Produto produto = produtoService.cadastrarProduto("Iphone",1L, new BigDecimal("9500.00"));
+	Produto produto = produtoService.cadastrarNovoProduto("Iphone",1L, new BigDecimal("9500.00"));
 	produtoService.excluirPorIdProduto(produto.getId());
 
 	assertNull(produtoService.pesquisarPorNomeProduto("Iphone"));
@@ -55,7 +55,7 @@ public class ProdutoServiceTests {
     
 	@Test
 	void produtoServiceAtualizaTestOK(){
-		Produto produto = produtoService.cadastrarProduto("Iphone",1L, new BigDecimal("9500.00"));
+		Produto produto = produtoService.cadastrarNovoProduto("Iphone",1L, new BigDecimal("9500.00"));
 		produtoService.atualizarProduto(produto.getId(),"Zenfone", new BigDecimal("3500.00"), "Asus");
 		
 		assertNull(produtoService.pesquisarPorNomeProduto("Zenfone"));

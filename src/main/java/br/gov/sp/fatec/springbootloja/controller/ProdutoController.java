@@ -34,9 +34,14 @@ public class ProdutoController {
     public Produto buscarProdutoPorNome(@RequestParam(value = "nome") String nome) {
         return produtoService.pesquisarPorNomeProduto(nome);        
     }
-
+    
+    public class ProdutoMarca {
+        Produto produto;
+        Marca marca;
+}
     @PostMapping
-    public Produto cadastrarNovoProduto(@RequestBody Produto produto, @RequestBody Marca marca){
-        return produtoService.cadastrarNovoProduto(produto.getNome(), marca.getId(),produto.getPreco());   
+    public Produto cadastrarNovoProduto(@RequestBody ProdutoMarca produtoMarca){
+        return produtoService.cadastrarNovoProduto(produtoMarca.produto.getNome(),produtoMarca.marca.getId(),produtoMarca.produto.getPreco());
+            //produto.getNome(), marca.getId(),produto.getPreco());   
     }
 }

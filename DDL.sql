@@ -28,7 +28,7 @@ create table pro_produto(
 create table ven_venda(
 	ven_id bigint unsigned not null auto_increment,
 	ven_data date not null,
-        ven_qtde bigint not null,
+    ven_qtde bigint not null,
   	ven_preco_venda decimal(15,2) not null,
 	primary key (ven_id)
 );

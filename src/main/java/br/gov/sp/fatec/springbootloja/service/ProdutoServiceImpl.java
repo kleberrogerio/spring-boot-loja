@@ -16,9 +16,6 @@ import br.gov.sp.fatec.springbootloja.repository.ProdutoRepository;
 @Service("produtoService")
 public class ProdutoServiceImpl implements ProdutoService {
 
-	//@Autowired
-	//private MarcaRepository marcaRepo;
-	
 	@Autowired
 	private ProdutoRepository produtoRepo;
 
@@ -32,13 +29,6 @@ public class ProdutoServiceImpl implements ProdutoService {
 	@Transactional
     public Produto cadastrarNovoProduto(String nome,Long idMarca, BigDecimal preco) {
         Marca marca = marcaService.buscarMarcaPorId(idMarca);
-		//Marca marca = marcaRepo.findById(idMarca);
-				
-	    //if(marca == null) {
-	    //	marca = new Marca();
-		  //  marca.setNome(nomeMarca);
-		    //marcaRepo.save(marca);
-		//}
 		Produto produto = new Produto(); 
 		produto.setNome(nome);
 		produto.setPreco(preco);

@@ -35,13 +35,34 @@ public class ProdutoController {
         return produtoService.pesquisarPorNomeProduto(nome);        
     }
     
+    public ProdutoService getProdutoService() {
+        return produtoService;
+    }
+
+    public void setProdutoService(ProdutoService produtoService) {
+        this.produtoService = produtoService;
+    }
+
     public class ProdutoMarca {
         Produto produto;
         Marca marca;
+        public Produto getProduto() {
+            return produto;
+        }
+        public void setProduto(Produto produto) {
+            this.produto = produto;
+        }
+        public Marca getMarca() {
+            return marca;
+        }
+        public void setMarca(Marca marca) {
+            this.marca = marca;
+        }
 }
     @PostMapping
     public Produto cadastrarNovoProduto(@RequestBody ProdutoMarca produtoMarca){
-        return produtoService.cadastrarNovoProduto(produtoMarca.produto.getNome(),produtoMarca.marca.getId(),produtoMarca.produto.getPreco());
+        return produtoService.cadastrarNovoProduto(produtoMarca.getProduto().getNome(),produtoMarca.getMarca().getId(),produtoMarca.getProduto().getPreco());
+       // return produtoService.cadastrarNovoProduto(produtoMarca.produto.getNome(),produtoMarca.marca.getId(),produtoMarca.produto.getPreco());
             //produto.getNome(), marca.getId(),produto.getPreco());   
     }
 }

@@ -43,7 +43,7 @@ public class ProdutoController {
         this.produtoService = produtoService;
     }
 
-   /* public class ProdutoMarca {
+   /* public static class ProdutoMarca {
         Produto produto;
         Marca marca;
         public Produto getProduto() {
@@ -58,11 +58,24 @@ public class ProdutoController {
         public void setMarca(Marca marca) {
             this.marca = marca;
         }
-}*/
+}
+  
+
     @PostMapping
-    public Produto cadastrarNovoProduto(@RequestBody Produto produto,@RequestBody Marca marca){
+    public Produto cadastrarNovoProduto(@RequestBody ProdutoMarca produtoMarca){
+   //     return produtoService.cadastrarNovoProduto(produtoMarca.getProduto().getNome(),produtoMarca.getMarca().getId(),produtoMarca.getProduto().getPreco());
+        return produtoService.cadastrarNovoProduto(produtoMarca.produto.getNome(),produtoMarca.marca.getId(),produtoMarca.produto.getPreco());
+            //produto.getNome(), marca.getId(),produto.getPreco());   
+    }
+    
+*/
+    @PostMapping
+    public Produto cadastrarNovoProduto(@RequestBody Produto produto, Marca marca){
    //     return produtoService.cadastrarNovoProduto(produtoMarca.getProduto().getNome(),produtoMarca.getMarca().getId(),produtoMarca.getProduto().getPreco());
         return produtoService.cadastrarNovoProduto(produto.getNome(),marca.getId(),produto.getPreco());
             //produto.getNome(), marca.getId(),produto.getPreco());   
     }
+   
+
+  
 }

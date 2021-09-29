@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "mar_marca")
 public class Marca {
@@ -24,6 +26,7 @@ public class Marca {
 	private String nome;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "marca")
+	@JsonIgnore
 	private Set<Produto> produtos;
 
 	public Set<Produto> getProdutos() {

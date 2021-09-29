@@ -33,8 +33,8 @@ public class ProdutoServiceImpl implements ProdutoService {
 		produto.setNome(nome);
 		produto.setPreco(preco);
 		produto.setMarca(marca);
-		marca.setId(idMarca);
-		produto.getMarca().getId();
+		//marca.setId(idMarca);
+		//produto.getMarca().getId();
 		produtoRepo.save(produto);
 		return produto;		
     }

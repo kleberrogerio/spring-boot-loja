@@ -32,7 +32,7 @@ public class Produto {
 	private BigDecimal preco;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	//@JsonIgnore
+	@JsonIgnore
 	@JoinColumn(name = "mar_id")
 	private Marca marca;
 	

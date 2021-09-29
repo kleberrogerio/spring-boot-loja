@@ -33,32 +33,9 @@ public class ProdutoServiceImpl implements ProdutoService {
 		produto.setNome(nome);
 		produto.setPreco(preco);
 		produto.setMarca(marca);
-		//marca.setId(idMarca);
-		//produto.getMarca().getId();
 		produtoRepo.save(produto);
 		return produto;		
     }
-
-	/*
-	Preservando o método anterior
-	@Override
-	@Transactional
-    public Produto cadastrarProduto(String nome, BigDecimal preco, String nomeMarca) {
-        Marca marca = marcaRepo.findByNomeIgnoreCase(nomeMarca);
-				
-	    if(marca == null) {
-	    	marca = new Marca();
-		    marca.setNome(nomeMarca);
-		    marcaRepo.save(marca);
-		}
-		Produto produto = new Produto(); 
-		produto.setNome(nome);
-		produto.setPreco(preco);
-		produto.setMarca(marca);
-		produtoRepo.save(produto);
-		return produto;		
-    }
-*/
 
     @Override
 	public void excluirPorIdProduto(Long id) {

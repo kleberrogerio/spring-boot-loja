@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//import br.gov.sp.fatec.springbootloja.entity.Marca;
 import br.gov.sp.fatec.springbootloja.entity.Produto;
 import br.gov.sp.fatec.springbootloja.service.ProdutoService;
 
@@ -41,42 +40,10 @@ public class ProdutoController {
 
     public void setProdutoService(ProdutoService produtoService) {
         this.produtoService = produtoService;
-    }
+    }  
 
-   /* public static class ProdutoMarca {
-        Produto produto;
-        Marca marca;
-        public Produto getProduto() {
-            return produto;
-        }
-        public void setProduto(Produto produto) {
-            this.produto = produto;
-        }
-        public Marca getMarca() {
-            return marca;
-        }
-        public void setMarca(Marca marca) {
-            this.marca = marca;
-        }
-}
-  
-
-    @PostMapping
-    public Produto cadastrarNovoProduto(@RequestBody ProdutoMarca produtoMarca){
-   //     return produtoService.cadastrarNovoProduto(produtoMarca.getProduto().getNome(),produtoMarca.getMarca().getId(),produtoMarca.getProduto().getPreco());
-        return produtoService.cadastrarNovoProduto(produtoMarca.produto.getNome(),produtoMarca.marca.getId(),produtoMarca.produto.getPreco());
-            //produto.getNome(), marca.getId(),produto.getPreco());   
-    }
-    
-*/
     @PostMapping
     public Produto cadastrarNovoProduto(@RequestBody Produto produto){
-   //     return produtoService.cadastrarNovoProduto(produtoMarca.getProduto().getNome(),produtoMarca.getMarca().getId(),produtoMarca.getProduto().getPreco());
         return produtoService.cadastrarNovoProduto(produto.getNome(),produto.getMarca().getId(),produto.getPreco());
-            //produto.getNome(), marca.getId(),produto.getPreco());   
-            //return produto;
-    }
-   
-
-  
+    }  
 }

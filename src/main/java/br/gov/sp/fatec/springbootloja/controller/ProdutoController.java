@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.gov.sp.fatec.springbootloja.entity.Marca;
 import br.gov.sp.fatec.springbootloja.entity.Produto;
 import br.gov.sp.fatec.springbootloja.service.ProdutoService;
+
 
 
 @RestController
@@ -33,9 +33,17 @@ public class ProdutoController {
     public Produto buscarProdutoPorNome(@RequestParam(value = "nome") String nome) {
         return produtoService.pesquisarPorNomeProduto(nome);        
     }
+    
+    public ProdutoService getProdutoService() {
+        return produtoService;
+    }
+
+    public void setProdutoService(ProdutoService produtoService) {
+        this.produtoService = produtoService;
+    }  
 
     @PostMapping
-    public Produto cadastrarNovoProduto(@RequestBody Produto produto,@RequestBody Marca marca){
-        return produtoService.cadastrarProduto(produto.getNome(), produto.getPreco(), marca.getNome());   
-    }
+    public Produto cadastrarNovoProduto(@RequestBody Produto produto){
+        return produtoService.cadastrarNovoProduto(produto.getNome(),produto.getMarca().getId(),produto.getPreco());
+    }  
 }

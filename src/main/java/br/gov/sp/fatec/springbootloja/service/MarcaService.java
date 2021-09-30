@@ -8,9 +8,7 @@ public interface MarcaService {
     
     public void excluirMarca (Marca marca);
 	
-	public Marca pesquisarPorIdMarca (Long id);
-
-    public Marca atualizarMarca (Long id, String nome);
+	public Marca atualizarMarca (Long id, String nome);
     
     public List<Marca> buscarTodasMarcas();
 

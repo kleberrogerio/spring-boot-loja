@@ -22,12 +22,6 @@ public class MarcaServiceImpl implements MarcaService{
     }
 	
     @Override
-	public Marca pesquisarPorIdMarca (Long id){
-        Marca marca = marcaRepo.findById(id).get();
-        return marca;
-    }
- 
-    @Override
     public Marca atualizarMarca (Long id, String nome){
         Marca marca = marcaRepo.findById(id).get();
         marca.setNome(nome);

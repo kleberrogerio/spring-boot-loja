@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,11 @@ public class ProdutoController {
     @GetMapping
     public List<Produto> pesquisarTodosProdutos() {
         return produtoService.pesquisarTodosProdutos();
+    }
+    
+    @GetMapping(value = "/{id}")
+    public Produto buscarProdutoPorId(@PathVariable("id") Long id) {
+        return produtoService.buscarProdutoPorId(id);
     }
     
     @GetMapping(value = "/nome")

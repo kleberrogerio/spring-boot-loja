@@ -39,7 +39,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     @Override
 	public void excluirPorIdProduto(Long id) {
-		Produto produto = produtoService.pesquisarPorIdProduto(id);		
+		Produto produto = produtoService.buscarProdutoPorId(id);		
 		if(produto != null) {
 			produtoRepo.delete(produto);
 			}
@@ -56,7 +56,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 	}
 
 	@Override
-	public Produto pesquisarPorIdProduto(Long id) {
+	public Produto buscarProdutoPorId(Long id) {
 		Produto produto = produtoRepo.findById(id).get();
 		return produto;
 	}

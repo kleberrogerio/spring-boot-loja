@@ -2,6 +2,7 @@ package br.gov.sp.fatec.springbootloja.service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,7 +40,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     @Override
 	public void excluirPorIdProduto(Long id) {
-		Produto produto = produtoService.pesquisarPorIdProduto(id);		
+		Produto produto = produtoService.buscarProdutoPorId(id);		
 		if(produto != null) {
 			produtoRepo.delete(produto);
 			}
@@ -56,9 +57,12 @@ public class ProdutoServiceImpl implements ProdutoService {
 	}
 
 	@Override
-	public Produto pesquisarPorIdProduto(Long id) {
-		Produto produto = produtoRepo.findById(id).get();
-		return produto;
+	public Produto buscarProdutoPorId(Long id) {
+		Optional<Produto> produtoOp = produtoRepo.findById(id);
+		if(produtoOp.isPresent()){
+			return produtoOp.get();
+		}
+		throw new RuntimeException("Produto não encontrado!");
 	}
 
 	@Override

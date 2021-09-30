@@ -14,7 +14,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import br.gov.sp.fatec.springbootloja.controller.View;
 
 @Entity
 @Table(name = "pro_produto")
@@ -25,6 +27,8 @@ public class Produto {
 	@Column(name = "pro_id")
 	private Long id;
 	
+	//@JsonView(View.MarcaResumo.class)
+	@JsonView(View.ProdutoResumo.class)
 	@Column(name ="pro_nome")
 	private String nome;
 	

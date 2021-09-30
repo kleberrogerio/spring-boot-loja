@@ -12,6 +12,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import br.gov.sp.fatec.springbootloja.controller.View;
 
 @Entity
 @Table(name = "mar_marca")
@@ -22,9 +25,11 @@ public class Marca {
 	@Column(name = "mar_id")
 	private Long id;
 	
+	@JsonView(View.MarcaResumo.class)
 	@Column(name ="mar_nome")
 	private String nome;
 	
+	//@JsonView(View.MarcaResumo.class)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "marca")
 	@JsonIgnore
 	private Set<Produto> produtos;

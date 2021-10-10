@@ -1,6 +1,7 @@
 package br.gov.sp.fatec.springbootloja.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,4 +45,9 @@ public class MarcaServiceTest {
 		assertEquals("Oracle",marca.getNome());
 	}
     
+	@Test
+	void marcaServicePesquisarPorNomeTestOK(){
+		marcaService.cadastrarNovaMarca("LENOVO");
+		assertNotNull(marcaService.buscarMarcaPorNome("LENOVO"));
+		}
 }

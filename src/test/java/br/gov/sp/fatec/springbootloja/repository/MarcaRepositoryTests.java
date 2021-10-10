@@ -15,8 +15,7 @@ import br.gov.sp.fatec.springbootloja.entity.Marca;
 public class MarcaRepositoryTests {
 
     @Autowired
-	private MarcaRepository marcaRepo;
-	
+	private MarcaRepository marcaRepo;	
 	
 	@Test
 	void testaMarcaInsercaoTestoOK() {
@@ -24,6 +23,5 @@ public class MarcaRepositoryTests {
 		marca.setNome("Acer");
 		marcaRepo.save(marca);
 		assertNotNull(marca.getId());
-	}
-    
+	}    
 }

@@ -7,7 +7,7 @@ import br.gov.sp.fatec.springbootloja.entity.Produto;
 
 public interface ProdutoService {
 	
-	public Produto cadastrarProduto (String nome, BigDecimal preco, String nomeMarca);
+	public Produto cadastrarNovoProduto (String nome, Long idMarca,BigDecimal preco);
 	
 	public Produto atualizarProduto (String nome, BigDecimal preco, String nomeMarca);
 	
@@ -15,7 +15,7 @@ public interface ProdutoService {
 	
 	public Produto pesquisarPorNomeProduto (String nome);
 	
-	public Produto pesquisarPorIdProduto (Long id);
+	public Produto buscarProdutoPorId (Long id);
 	
 	public List<Produto> pesquisarTodosProdutos ();
 

@@ -2,7 +2,6 @@ package br.gov.sp.fatec.springbootloja.repository;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -53,12 +52,14 @@ public class ProdutoRepositoryTests {
 		assertNotNull(produto.getId());
 	}
 	
+	/*
+	Retirado do teste por utilizar o banco H2
 	@Test
 	void testaBuscaProdutoPorNomeAndMarcaQueryTestOK() {
 		List<Produto> produto = produtoRepo.buscaProdutoPorNomeEMarca("DESKTOP", "DELL");
 		assertFalse(produto.isEmpty());
 	}
-
+*/
 	@Test
 	void testaBuscaNomeOrPrecoTestOk() {
 		List<Produto> produto = produtoRepo.findByNomeOrPreco("DESKTOP", new BigDecimal("9500.00"));

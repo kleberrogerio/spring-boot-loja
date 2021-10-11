@@ -4,10 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.math.BigDecimal;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.gov.sp.fatec.springbootloja.entity.Produto;
@@ -15,12 +16,22 @@ import br.gov.sp.fatec.springbootloja.entity.Produto;
 
 @SpringBootTest
 @Transactional
-@Rollback
+//@Rollback
 public class ProdutoServiceTests {
 	
 	@Autowired
 	private ProdutoService produtoService;	
 
+	/*@BeforeAll
+	static void init(@Autowired JdbcTemplate JdbcTemplate){
+		JdbcTemplate.update(
+			"insert into mar_marca (mar_nome) values(?)",
+			"LENOVO");
+		JdbcTemplate.update(
+		"insert into pro_produto (pro_nome,mar_id,pro_preco) values(?,?,?)",
+		"MOUSE",1L,10000.00);
+	}
+	*/
 
 	@Test
 	void produtoServiceCadastrarProdutoTestOK() {

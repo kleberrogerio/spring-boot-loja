@@ -7,11 +7,12 @@ import java.util.Date;
 import java.util.HashSet;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.test.annotation.Rollback;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.gov.sp.fatec.springbootloja.entity.Marca;
@@ -21,7 +22,7 @@ import br.gov.sp.fatec.springbootloja.service.VendaService;
 
 @SpringBootTest
 @Transactional
-@Rollback
+//@Rollback
 public class VendaRepositoryTests {
 
     @Autowired
@@ -29,6 +30,17 @@ public class VendaRepositoryTests {
 
     @Autowired
     private ProdutoRepository produtoRepo;
+
+	@BeforeAll
+	static void init(@Autowired JdbcTemplate JdbcTemplate){
+		JdbcTemplate.update(
+			"insert into mar_marca (mar_nome) values(?)",
+			"Logitech");
+		JdbcTemplate.update(
+		"insert into pro_produto (pro_nome,mar_id,pro_preco) values(?,?,?)",
+		"MOUSE",1L,150.00);
+	}
+	
 
     @Autowired
     private MarcaRepository marcaRepo;

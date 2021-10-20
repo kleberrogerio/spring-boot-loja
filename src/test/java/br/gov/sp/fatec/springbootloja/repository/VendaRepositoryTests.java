@@ -6,19 +6,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.gov.sp.fatec.springbootloja.entity.Marca;
 import br.gov.sp.fatec.springbootloja.entity.Produto;
 import br.gov.sp.fatec.springbootloja.entity.Venda;
-import br.gov.sp.fatec.springbootloja.service.VendaService;
 
 @SpringBootTest
 @Transactional
@@ -46,7 +43,7 @@ public class VendaRepositoryTests {
     private MarcaRepository marcaRepo;
 
     @Autowired
-    private VendaService vendaService;
+    //private VendaService vendaService;
 
     /*Arrumar método cadastrar venda
     @Test

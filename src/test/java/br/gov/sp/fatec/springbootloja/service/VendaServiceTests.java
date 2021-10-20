@@ -1,17 +1,10 @@
 package br.gov.sp.fatec.springbootloja.service;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import java.math.BigDecimal;
-
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
-
-import br.gov.sp.fatec.springbootloja.entity.Venda;
 
 @SpringBootTest
 @Transactional
@@ -19,7 +12,8 @@ import br.gov.sp.fatec.springbootloja.entity.Venda;
 public class VendaServiceTests {
 	
 	@Autowired
-	private VendaService vendaService;
+	//private VendaService vendaService;
+
 	@BeforeAll
 	static void init(@Autowired JdbcTemplate JdbcTemplate){
 		JdbcTemplate.update(

@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import br.gov.sp.fatec.springbootloja.entity.Marca;
 import br.gov.sp.fatec.springbootloja.service.MarcaService;
 
@@ -41,6 +42,16 @@ public class MarcaController {
     @PostMapping
     public Marca cadastrarNovaMarca(@RequestBody Marca marca){
         return marcaService.cadastrarNovaMarca(marca.getNome());
+    }
+
+    @PutMapping(value="/{id}")
+    public Marca atualizarMarca(@PathVariable("id") Long id, @RequestBody Marca marca){
+        return marcaService.atualizarMarca(id, marca.getNome());
+    }
+
+    @DeleteMapping(value="/{id}")
+    public void deletaMarca(@PathVariable("id") Long id) {
+        marcaService.deleteMarca(id);    
     }
 
 }

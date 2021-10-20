@@ -56,10 +56,10 @@ public class ProdutoController {
     }  
 
     @PutMapping(value="/{id}")
-    public Produto atualizarMarca(@PathVariable("id") Long id, @RequestBody Produto produto){
-        return produtoService.atualizarProduto(produto.getNome(),produto.getMarca().getId(),produto.getPreco());
-    }
-
+    public Produto atualizarProduto(@PathVariable("id") Long id, @RequestBody Produto produto){
+        return produtoService.atualizarProduto(id,produto.getNome(),produto.getMarca().getId(),produto.getPreco());
+    }       
+    
     @DeleteMapping(value="/{id}")
     public void deletaMarca(@PathVariable("id") Long id) {
         produtoService.deleteProduto(id);    

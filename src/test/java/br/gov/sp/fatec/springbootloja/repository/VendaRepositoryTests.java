@@ -39,10 +39,10 @@ public class VendaRepositoryTests {
 	}
 	
 
-    @Autowired
-    private MarcaRepository marcaRepo;
+   // @Autowired
+    //private MarcaRepository marcaRepo;
 
-    @Autowired
+   // @Autowired
     //private VendaService vendaService;
 
     /*Arrumar método cadastrar venda
@@ -54,7 +54,7 @@ public class VendaRepositoryTests {
 		
 	}
     */
-
+  /* 
     @Test
 	void testaVendaInsercaoTestOk() {
 		Venda venda = new Venda();
@@ -82,7 +82,7 @@ public class VendaRepositoryTests {
 
 		assertNotNull(venda.getId());
     }
-    /* 
+  
     Teste retirado por utilizar o banco de dados H2
     @Test
 	void testaVendaInsercaoTestNoOk() {

@@ -1,7 +1,6 @@
 package br.gov.sp.fatec.springbootloja.repository;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -13,7 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.gov.sp.fatec.springbootloja.entity.Marca;
 import br.gov.sp.fatec.springbootloja.entity.Produto;
 
 @SpringBootTest
@@ -25,7 +23,7 @@ public class ProdutoRepositoryTests {
 	private ProdutoRepository produtoRepo;
 	
 	@Autowired
-	private MarcaRepository marcaRepo;
+	//private MarcaRepository marcaRepo;
 
 	@BeforeAll
 	static void init(@Autowired JdbcTemplate JdbcTemplate){
@@ -38,7 +36,7 @@ public class ProdutoRepositoryTests {
 	}
 	
 	
-	
+	/*
 	@Test
 	void testaProdutoInsercaoTestOk() {
 		Marca marca = new Marca();
@@ -51,6 +49,7 @@ public class ProdutoRepositoryTests {
 		produtoRepo.save(produto);
 		assertNotNull(produto.getId());
 	}
+	*/
 	
 	/*
 	Retirado do teste por utilizar o banco H2
@@ -59,11 +58,11 @@ public class ProdutoRepositoryTests {
 		List<Produto> produto = produtoRepo.buscaProdutoPorNomeEMarca("DESKTOP", "DELL");
 		assertFalse(produto.isEmpty());
 	}
-*/
+
 	@Test
 	void testaBuscaNomeOrPrecoTestOk() {
 		List<Produto> produto = produtoRepo.findByNomeOrPreco("DESKTOP", new BigDecimal("9500.00"));
 		assertFalse(produto.isEmpty());
-	}
+	}*/
     
 }

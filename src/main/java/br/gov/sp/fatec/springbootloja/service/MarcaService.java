@@ -18,6 +18,8 @@ public interface MarcaService {
 
     public Marca buscarMarcaPorNome(String nome);
 
-    public Marca cadastrarNovaMarca(String nome);   
+    public Marca cadastrarNovaMarca(String nome);
+    
+    public void deleteMarca (Long id);
     
 }

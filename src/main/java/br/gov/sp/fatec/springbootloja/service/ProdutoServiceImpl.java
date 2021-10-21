@@ -39,7 +39,7 @@ public class ProdutoServiceImpl implements ProdutoService {
     }
 
     @Override
-	public void excluirPorIdProduto(Long id) {
+	public void deleteProduto(Long id) {
 		Produto produto = produtoService.buscarProdutoPorId(id);		
 		if(produto != null) {
 			produtoRepo.delete(produto);
@@ -71,13 +71,17 @@ public class ProdutoServiceImpl implements ProdutoService {
 	}
 
 	@Override
-	public Produto atualizarProduto(String nome, BigDecimal preco, String nomeMarca) {
-		return null;
-	}
+	public Produto atualizarProduto(Long id,String nome,Long idMarca, BigDecimal preco) {
+		Marca marca = marcaService.buscarMarcaPorId(idMarca);
+		Produto produto = produtoRepo.findById(id).get();
 
-	@Override
-	public Produto atualizarProduto(Long id, String nome, BigDecimal preco, String nomeMarca) {
-		return null;
-	}  
-	
+		if (produto != null){
+            produto.setNome(nome);
+			produto.setPreco(preco);
+			produto.setMarca(marca);
+			produtoRepo.save(produto);
+			return produto;		
+        }
+        throw new RuntimeException("Produto não encontrado!");
+    }
 }

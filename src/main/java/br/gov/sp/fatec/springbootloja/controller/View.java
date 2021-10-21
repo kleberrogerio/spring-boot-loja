@@ -4,6 +4,10 @@ public class View {
 
     public static class MarcaResumo{}
 
+    public static class MarcaCompleto extends MarcaResumo{}
+
     public static class ProdutoResumo{}  
+
+    public static class ProdutoCompleto extends ProdutoResumo{}  
     
 }

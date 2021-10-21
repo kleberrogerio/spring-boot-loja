@@ -9,17 +9,15 @@ public interface ProdutoService {
 	
 	public Produto cadastrarNovoProduto (String nome, Long idMarca,BigDecimal preco);
 	
-	public Produto atualizarProduto (String nome, BigDecimal preco, String nomeMarca);
+	public Produto atualizarProduto (Long id, String nome,Long idMarca, BigDecimal preco);
 	
-	public void excluirPorIdProduto (Long id);
+	public void deleteProduto (Long id);
 	
 	public Produto pesquisarPorNomeProduto (String nome);
 	
 	public Produto buscarProdutoPorId (Long id);
 	
-	public List<Produto> pesquisarTodosProdutos ();
-
-	public Produto atualizarProduto(Long id, String nome, BigDecimal preco, String nomeMarca);    
+	public List<Produto> pesquisarTodosProdutos ();	   
 	
 }	
 

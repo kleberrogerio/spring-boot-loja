@@ -22,6 +22,7 @@ import br.gov.sp.fatec.springbootloja.controller.View;
 @Table(name = "pro_produto")
 public class Produto {
 	
+	@JsonView(View.ProdutoResumo.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pro_id")

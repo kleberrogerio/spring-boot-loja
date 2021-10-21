@@ -2,6 +2,8 @@ package br.gov.sp.fatec.springbootloja.controller;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,16 +29,19 @@ public class ProdutoController {
     @Autowired
     private ProdutoService produtoService;
     
+    @JsonView(View.ProdutoCompleto.class)
     @GetMapping
     public List<Produto> pesquisarTodosProdutos() {
         return produtoService.pesquisarTodosProdutos();
     }
     
+    @JsonView(View.ProdutoCompleto.class)
     @GetMapping(value = "/{id}")
     public Produto buscarProdutoPorId(@PathVariable("id") Long id) {
         return produtoService.buscarProdutoPorId(id);
     }
     
+    @JsonView(View.ProdutoResumo.class)
     @GetMapping(value = "/nome")
     public Produto buscarProdutoPorNome(@RequestParam(value = "nome") String nome) {
         return produtoService.pesquisarPorNomeProduto(nome);        

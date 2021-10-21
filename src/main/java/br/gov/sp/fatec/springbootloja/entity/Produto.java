@@ -14,28 +14,33 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import br.gov.sp.fatec.springbootloja.controller.View;
 
 @Entity
 @Table(name = "pro_produto")
 public class Produto {
 	
+	@JsonView(View.ProdutoCompleto.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pro_id")
 	private Long id;
 	
+	@JsonView({View.MarcaResumo.class, View.ProdutoResumo.class})
 	@Column(name ="pro_nome")
 	private String nome;
 	
+	@JsonView(View.ProdutoCompleto.class)
 	@Column(name ="pro_preco")
 	private BigDecimal preco;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	//@JsonIgnore
 	@JoinColumn(name = "mar_id")
 	private Marca marca;
 	
+	@JsonView(View.ProdutoResumo.class)
 	@ManyToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
 	private Set<Venda> vendas;
 

@@ -17,6 +17,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import br.gov.sp.fatec.springbootloja.controller.View;
+
 @Entity
 @Table(name = "ven_venda")
 public class Venda {
@@ -26,6 +30,7 @@ public class Venda {
 	@Column(name = "ven_id")
 	private Long id;
 	
+	@JsonView(View.ProdutoResumo.class)
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name ="ven_data")
 	private Date data;

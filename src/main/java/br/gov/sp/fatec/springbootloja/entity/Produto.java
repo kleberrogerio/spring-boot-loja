@@ -27,8 +27,7 @@ public class Produto {
 	@Column(name = "pro_id")
 	private Long id;
 	
-	//@JsonView(View.MarcaResumo.class)
-	@JsonView(View.ProdutoResumo.class)
+	@JsonView(View.MarcaResumo.class)
 	@Column(name ="pro_nome")
 	private String nome;
 	

@@ -31,7 +31,6 @@ public class Marca {
 	
 	@JsonView(View.MarcaResumo.class)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "marca")
-	@JsonIgnore
 	private Set<Produto> produtos;
 
 	public Set<Produto> getProdutos() {

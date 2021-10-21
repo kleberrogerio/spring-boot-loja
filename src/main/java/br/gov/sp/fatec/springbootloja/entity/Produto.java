@@ -14,10 +14,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonView;
 
 import br.gov.sp.fatec.springbootloja.controller.View;
 
+=======
+>>>>>>> fc5e4252d6582aebb317f40e6a66475adb664b6c
 @Entity
 @Table(name = "pro_produto")
 public class Produto {

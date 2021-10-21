@@ -27,7 +27,7 @@ public class Produto {
 	@Column(name = "pro_id")
 	private Long id;
 	
-	@JsonView(View.MarcaResumo.class)
+	@JsonView({View.MarcaResumo.class,View.ProdutoResumo.class})
 	@Column(name ="pro_nome")
 	private String nome;
 	
@@ -35,10 +35,10 @@ public class Produto {
 	private BigDecimal preco;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	//@JsonIgnore
 	@JoinColumn(name = "mar_id")
 	private Marca marca;
 	
+	@JsonView(View.ProdutoResumo.class)
 	@ManyToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
 	private Set<Venda> vendas;
 

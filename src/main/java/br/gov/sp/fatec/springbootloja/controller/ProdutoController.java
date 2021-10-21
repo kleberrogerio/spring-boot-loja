@@ -33,11 +33,13 @@ public class ProdutoController {
         return produtoService.pesquisarTodosProdutos();
     }
     
+    @JsonView(View.ProdutoResumo.class)
     @GetMapping(value = "/{id}")
     public Produto buscarProdutoPorId(@PathVariable("id") Long id) {
         return produtoService.buscarProdutoPorId(id);
     }
-    
+        
+    @JsonView(View.ProdutoResumo.class)
     @GetMapping(value = "/nome")
     public Produto buscarProdutoPorNome(@RequestParam(value = "nome") String nome) {
         return produtoService.pesquisarPorNomeProduto(nome);        

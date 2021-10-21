@@ -58,4 +58,15 @@ public class MarcaServiceImpl implements MarcaService{
         marcaRepo.save(marca);
         return marca; 
     }   
+
+    @Override
+    public void deleteMarca (Long id){
+        Optional<Marca> marcaOp = marcaRepo.findById(id);
+        if(marcaOp.isPresent()) {
+            marcaRepo.deleteById(id);
+        }else{
+        throw new RuntimeException("Marca não encontrado!"); 
+        }
+			
+    }
 }

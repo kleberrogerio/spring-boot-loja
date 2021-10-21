@@ -19,6 +19,7 @@ import br.gov.sp.fatec.springbootloja.controller.View;
 @Table(name = "mar_marca")
 public class Marca {
 	
+	@JsonView({View.MarcaResumo.class,View.ProdutoResumo.class})
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "mar_id")

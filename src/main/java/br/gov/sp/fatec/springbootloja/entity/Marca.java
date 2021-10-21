@@ -29,7 +29,7 @@ public class Marca {
 	@Column(name ="mar_nome")
 	private String nome;
 	
-	//@JsonView(View.MarcaResumo.class)
+	@JsonView(View.MarcaResumo.class)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "marca")
 	@JsonIgnore
 	private Set<Produto> produtos;

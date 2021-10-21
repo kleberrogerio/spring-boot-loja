@@ -25,6 +25,7 @@ public class MarcaController {
     @Autowired
     private MarcaService marcaService;
 
+    @JsonView(View.MarcaResumo.class)
     @GetMapping
     public List<Marca> buscarTodos() {
         return marcaService.buscarTodasMarcas();

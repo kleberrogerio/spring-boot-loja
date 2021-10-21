@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.gov.sp.fatec.springbootloja.entity.Marca;
+import br.gov.sp.fatec.springbootloja.exception.RegistroNaoEncontradoException;
 import br.gov.sp.fatec.springbootloja.repository.MarcaRepository;
 
 
@@ -35,7 +36,7 @@ public class MarcaServiceImpl implements MarcaService{
             marcaRepo.save(marca);
             return marca;
         }
-        throw new RuntimeException("Marca não encontrado!");
+        throw new RegistroNaoEncontradoException("Marca não encontrada!");
     }
 
     @Override
@@ -49,7 +50,7 @@ public class MarcaServiceImpl implements MarcaService{
         if(marcaOp.isPresent()){
             return marcaOp.get();
         }
-        throw new RuntimeException("Marca não encontrada!");
+        throw new RegistroNaoEncontradoException("Marca não encontrada!");
     }
 
     @Override
@@ -58,7 +59,7 @@ public class MarcaServiceImpl implements MarcaService{
         if(marca !=null){
            return marca; 
         }
-        throw new RuntimeException("Marca não encontrada");
+        throw new RegistroNaoEncontradoException("Marca não encontrada");
     }
 
     public Marca cadastrarNovaMarca(String nome){
@@ -74,7 +75,7 @@ public class MarcaServiceImpl implements MarcaService{
         if(marcaOp.isPresent()) {
             marcaRepo.deleteById(id);
         }else{
-        throw new RuntimeException("Marca não encontrado!"); 
+        throw new RegistroNaoEncontradoException("Marca não encontrada!"); 
         }
 			
     }

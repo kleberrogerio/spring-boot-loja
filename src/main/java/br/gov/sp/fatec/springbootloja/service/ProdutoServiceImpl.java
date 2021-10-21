@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.gov.sp.fatec.springbootloja.entity.Marca;
 import br.gov.sp.fatec.springbootloja.entity.Produto;
+import br.gov.sp.fatec.springbootloja.exception.RegistroNaoEncontradoException;
 import br.gov.sp.fatec.springbootloja.repository.ProdutoRepository;
 
 
@@ -62,7 +63,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 		if(produtoOp.isPresent()){
 			return produtoOp.get();
 		}
-		throw new RuntimeException("Produto não encontrado!");
+		throw new RegistroNaoEncontradoException("Produto não encontrado!");
 	}
 
 	@Override
@@ -82,6 +83,6 @@ public class ProdutoServiceImpl implements ProdutoService {
 			produtoRepo.save(produto);
 			return produto;		
         }
-        throw new RuntimeException("Produto não encontrado!");
+        throw new RegistroNaoEncontradoException("Produto não encontrado!");
     }
 }

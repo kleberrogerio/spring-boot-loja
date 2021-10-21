@@ -1,32 +1,21 @@
 package br.gov.sp.fatec.springbootloja.repository;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.HashSet;
-
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
-
-import br.gov.sp.fatec.springbootloja.entity.Marca;
-import br.gov.sp.fatec.springbootloja.entity.Produto;
-import br.gov.sp.fatec.springbootloja.entity.Venda;
 
 @SpringBootTest
 @Transactional
 //@Rollback
 public class VendaRepositoryTests {
 
-    @Autowired
-    private VendaRepository vendaRepo;
+  //  @Autowired
+    //private VendaRepository vendaRepo;
 
-    @Autowired
-    private ProdutoRepository produtoRepo;
+    //@Autowired
+    //private ProdutoRepository produtoRepo;
 
     @BeforeAll
 	static void init(@Autowired JdbcTemplate JdbcTemplate){

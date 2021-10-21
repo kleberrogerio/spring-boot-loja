@@ -1,26 +1,18 @@
 package br.gov.sp.fatec.springbootloja.repository;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-
-import java.math.BigDecimal;
-import java.util.List;
-
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
-
-import br.gov.sp.fatec.springbootloja.entity.Produto;
 
 @SpringBootTest
 @Transactional
 //@Rollback
 public class ProdutoRepositoryTests {
 
-    @Autowired
-	private ProdutoRepository produtoRepo;
+   // @Autowired
+//	private ProdutoRepository produtoRepo;
 	
 	@Autowired
 	//private MarcaRepository marcaRepo;

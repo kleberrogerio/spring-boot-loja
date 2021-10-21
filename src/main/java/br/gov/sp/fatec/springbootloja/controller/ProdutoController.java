@@ -55,11 +55,13 @@ public class ProdutoController {
         this.produtoService = produtoService;
     }  
 
+    
     @PostMapping
     public Produto cadastrarNovoProduto(@RequestBody Produto produto){
         return produtoService.cadastrarNovoProduto(produto.getNome(),produto.getMarca().getId(),produto.getPreco());
     }  
-
+    
+    @JsonView(View.ProdutoCompleto.class)
     @PutMapping(value="/{id}")
     public Produto atualizarProduto(@PathVariable("id") Long id, @RequestBody Produto produto){
         return produtoService.atualizarProduto(id,produto.getNome(),produto.getMarca().getId(),produto.getPreco());

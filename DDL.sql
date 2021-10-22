@@ -44,12 +44,10 @@ create table ite_itemvenda(
 create table usr_usuario (
     usr_id bigint unsigned not null auto_increment,
     usr_nome varchar(20) not null,
-    usr_email varchar(100) not null,
     usr_senha varchar(100) not null,
     primary key (usr_id),
-    unique key uni_usuario_nome (usr_nome),
-    unique key uni_usuario_email (usr_email)
-);
+    unique key uni_usuario_nome (usr_nome)
+ );
 
 create table aut_autorizacao (
     aut_id bigint unsigned not null auto_increment,
@@ -74,5 +72,5 @@ insert into mar_marca(mar_nome) values('DELL');
 insert into pro_produto(pro_nome, mar_id, pro_preco) values('DESKTOP', 1, 9500.00);
 insert into usr_usuario (usr_nome,usr_senha) values ('admin','$2a$10$i3.Z8Yv1Fwl0I5SNjdCGkOTRGQjGvHjh/gMZhdc3e7LIovAklqM6C');
 insert into aut_autorizacao (aut_nome) values ('ROLE_ADMIN');
-insert into aua_usuario_autorizacao values (1,1);
+insert into uau_usuario_autorizacao values (1,1);
 commit;

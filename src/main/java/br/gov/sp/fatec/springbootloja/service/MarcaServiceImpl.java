@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.gov.sp.fatec.springbootloja.entity.Marca;
+import br.gov.sp.fatec.springbootloja.exception.RegistroNaoEncontradoException;
 import br.gov.sp.fatec.springbootloja.repository.MarcaRepository;
 
 
@@ -68,10 +69,17 @@ public class MarcaServiceImpl implements MarcaService{
     @Override
     public void deleteMarca (Long id){
         Optional<Marca> marcaOp = marcaRepo.findById(id);
+       
         if(marcaOp.isPresent()) {
-            marcaRepo.deleteById(id);
+            Boolean semProduto = marcaOp.get().getProdutos().isEmpty();
+           
+            if(semProduto) {
+                marcaRepo.deleteById(id);
+            }else{
+                throw new RegistroNaoEncontradoException("Tem um produto cadastrado com está marca, exclua o produto primeiro!");
+            }
         }else{
-        throw new RuntimeException("Marca não encontrado!"); 
+        throw new RegistroNaoEncontradoException("Marca não encontrado!"); 
         }
 			
     }

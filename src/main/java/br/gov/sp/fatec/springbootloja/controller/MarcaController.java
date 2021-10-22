@@ -59,11 +59,13 @@ public class MarcaController {
                     return new ResponseEntity<Marca>(marca,responseHeaders,HttpStatus.CREATED);
     }
 
+    @JsonView(View.MarcaResumo.class)
     @PutMapping(value="/{id}")
     public Marca atualizarMarca(@PathVariable("id") Long id, @RequestBody Marca marca){
         return marcaService.atualizarMarca(id, marca.getNome());
     }
 
+    @JsonView(View.MarcaResumo.class)
     @DeleteMapping(value="/{id}")
     public void deletaMarca(@PathVariable("id") Long id) {
         marcaService.deleteMarca(id);    

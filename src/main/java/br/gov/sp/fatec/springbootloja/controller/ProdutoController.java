@@ -55,7 +55,8 @@ public class ProdutoController {
         this.produtoService = produtoService;
     }  
 
-    
+   
+    @JsonView(View.ProdutoResumo.class)
     @PostMapping
     public Produto cadastrarNovoProduto(@RequestBody Produto produto){
         return produtoService.cadastrarNovoProduto(produto.getNome(),produto.getMarca().getId(),produto.getPreco());
@@ -67,6 +68,7 @@ public class ProdutoController {
         return produtoService.atualizarProduto(id,produto.getNome(),produto.getMarca().getId(),produto.getPreco());
     }       
     
+    @JsonView(View.ProdutoResumo.class)
     @DeleteMapping(value="/{id}")
     public void deletaMarca(@PathVariable("id") Long id) {
         produtoService.deleteProduto(id);    

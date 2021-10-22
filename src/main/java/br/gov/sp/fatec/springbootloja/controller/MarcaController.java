@@ -5,7 +5,6 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +29,6 @@ public class MarcaController {
 
     @JsonView(View.MarcaResumo.class)
     @GetMapping
-    @PreAuthorize("isAuthenticated()")
     public List<Marca> buscarTodos() {
         return marcaService.buscarTodasMarcas();
     }
@@ -48,7 +46,6 @@ public class MarcaController {
     }
 
     @JsonView(View.MarcaResumo.class)
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping
     public Marca cadastrarNovaMarca(@RequestBody Marca marca){
         return marcaService.cadastrarNovaMarca(marca.getNome());

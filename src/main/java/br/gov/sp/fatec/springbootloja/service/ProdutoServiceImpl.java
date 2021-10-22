@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -66,6 +67,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 	}
 
 	@Override
+	@PreAuthorize("isAuthenticated()")
 	public List<Produto> pesquisarTodosProdutos() {
 		return produtoRepo.findAll();
 	}

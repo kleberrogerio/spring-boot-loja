@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import br.gov.sp.fatec.springbootloja.entity.Marca;
@@ -31,6 +32,7 @@ public class MarcaServiceImpl implements MarcaService{
     }
 
     @Override
+    @PreAuthorize("isAuthenticated()")
     public List<Marca> buscarTodasMarcas(){
         return marcaRepo.findAll();
     }

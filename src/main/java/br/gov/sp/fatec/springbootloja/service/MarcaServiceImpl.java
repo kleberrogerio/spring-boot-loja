@@ -69,13 +69,31 @@ public class MarcaServiceImpl implements MarcaService{
         return marca; 
     }  
     
-    @Override
+    /*@Override
     public void deleteMarca (Long id){
         Optional<Marca> marcaOp = marcaRepo.findById(id);
         if(marcaOp.isPresent()) {
             marcaRepo.deleteById(id);
         }else{
         throw new RegistroNaoEncontradoException("Marca não encontrada!"); 
+        }
+			
+    }*/
+
+     @Override
+    public void deleteMarca (Long id){
+        Optional<Marca> marcaOp = marcaRepo.findById(id);
+       
+        if(marcaOp.isPresent()) {
+            Boolean semProduto = marcaOp.get().getProdutos().isEmpty();
+           
+            if(semProduto) {
+                marcaRepo.deleteById(id);
+            }else{
+                throw new RegistroNaoEncontradoException("Tem um produto cadastrado com está marca, exclua o produto primeiro!");
+            }
+        }else{
+        throw new RegistroNaoEncontradoException("Marca não encontrado!"); 
         }
 			
     }

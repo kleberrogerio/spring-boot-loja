@@ -49,6 +49,7 @@ public class MarcaController {
         return marcaService.buscarMarcaPorNome(nome);
     }
 
+    @JsonView(View.MarcaResumo.class)
     @PostMapping
     public ResponseEntity<Marca> cadastrarNovaMarca(@RequestBody Marca marca,UriComponentsBuilder uriComponentsBuilder){
         marca = marcaService.cadastrarNovaMarca(marca.getNome());

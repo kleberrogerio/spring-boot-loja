@@ -29,6 +29,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 	
 	@Override
 	@Transactional
+	@PreAuthorize("isAuthenticated()")
     public Produto cadastrarNovoProduto(String nome,Long idMarca, BigDecimal preco) {
         Marca marca = marcaService.buscarMarcaPorId(idMarca);
 		Produto produto = new Produto(); 
@@ -40,6 +41,7 @@ public class ProdutoServiceImpl implements ProdutoService {
     }
 
     @Override
+	@PreAuthorize("isAuthenticated()")
 	public void deleteProduto(Long id) {
 		Produto produto = produtoService.buscarProdutoPorId(id);		
 		if(produto != null) {
@@ -48,6 +50,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 	}
 
 	@Override
+	@PreAuthorize("isAuthenticated()")
 	public Produto pesquisarPorNomeProduto(String nome) {
 		Produto produto = produtoRepo.findByNomeIgnoreCase(nome);
 		if(produto!=null){
@@ -58,6 +61,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 	}
 
 	@Override
+	@PreAuthorize("isAuthenticated()")
 	public Produto buscarProdutoPorId(Long id) {
 		Optional<Produto> produtoOp = produtoRepo.findById(id);
 		if(produtoOp.isPresent()){
@@ -73,6 +77,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 	}
 
 	@Override
+	@PreAuthorize("isAuthenticated()")
 	public Produto atualizarProduto(Long id,String nome,Long idMarca, BigDecimal preco) {
 		Marca marca = marcaService.buscarMarcaPorId(idMarca);
 		Produto produto = produtoRepo.findById(id).get();

@@ -19,11 +19,13 @@ public class MarcaServiceImpl implements MarcaService{
 	private MarcaRepository marcaRepo;
 
     @Override
+    @PreAuthorize("isAuthenticated()")
     public void excluirMarca (Marca marca){
 		marcaRepo.delete(marca);	
     }
 	
     @Override
+    @PreAuthorize("isAuthenticated()")
     public Marca atualizarMarca (Long id, String nome){
         Marca marca = marcaRepo.findById(id).get();
         marca.setNome(nome);
@@ -38,6 +40,7 @@ public class MarcaServiceImpl implements MarcaService{
     }
 
     @Override
+    @PreAuthorize("isAuthenticated()")
     public Marca buscarMarcaPorId(Long id){
         Optional<Marca> marcaOp = marcaRepo.findById(id);
         if(marcaOp.isPresent()){
@@ -47,6 +50,7 @@ public class MarcaServiceImpl implements MarcaService{
     }
 
     @Override
+    @PreAuthorize("isAuthenticated()")
     public Marca buscarMarcaPorNome(String nome){
         Marca marca = marcaRepo.findByNomeIgnoreCase(nome);
         if(marca !=null){
@@ -55,6 +59,8 @@ public class MarcaServiceImpl implements MarcaService{
         throw new RuntimeException("Marca não encontrada");
     }
 
+    @Override
+    @PreAuthorize("isAuthenticated()")
     public Marca cadastrarNovaMarca(String nome){
         Marca marca = new Marca();
 		marca.setNome(nome);
@@ -63,6 +69,7 @@ public class MarcaServiceImpl implements MarcaService{
     }   
 
     @Override
+    @PreAuthorize("isAuthenticated()")
     public void deleteMarca (Long id){
         Optional<Marca> marcaOp = marcaRepo.findById(id);
        

@@ -9,6 +9,8 @@ public class View {
     public static class ProdutoResumo{}  
 
     public static class ProdutoCompleto extends ProdutoResumo{}  
+
+    public static class UsuarioResumo{}
     
 }
 

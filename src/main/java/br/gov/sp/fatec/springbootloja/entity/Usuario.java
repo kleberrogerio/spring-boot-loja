@@ -13,21 +13,29 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import br.gov.sp.fatec.springbootloja.controller.View;
+
 @Entity
 @Table(name="usr_usuario")
 public class Usuario {
     
+    @JsonView(View.UsuarioResumo.class)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="usr_id")
     private Long id;
 
+    @JsonView(View.UsuarioResumo.class)
     @Column(name="usr_nome")
     private String nome;
 
     @Column(name="usr_email")
     private String email;
 
+    
+    @JsonView(View.UsuarioResumo.class)
     @Column(name="usr_senha")
     private String senha;
 

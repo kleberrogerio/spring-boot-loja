@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -48,6 +49,8 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
         return usuario;
     }
 
+    @Override
+    @PreAuthorize("isAuthenticated()") 
     public List<Usuario> buscarTodosUsuarios() {
 
         return usuarioRepo.findAll();

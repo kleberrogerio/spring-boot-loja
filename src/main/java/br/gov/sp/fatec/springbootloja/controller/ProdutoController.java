@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.gov.sp.fatec.springbootloja.entity.Produto;
 import br.gov.sp.fatec.springbootloja.service.ProdutoService;
 
-
-
 @RestController
 @RequestMapping(value = "/produto")
 @CrossOrigin

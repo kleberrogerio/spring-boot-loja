@@ -16,20 +16,12 @@ import javax.persistence.Table;
 public class Autorizacao {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="aut_id")
     private Long id;
 
     @Column(name="aut_nome")
     private String nome;
-
-    public Set<Usuario> getUsuarios() {
-        return usuarios;
-    }
-
-    public void setUsuarios(Set<Usuario> usuarios) {
-        this.usuarios = usuarios;
-    }
 
     @ManyToMany(fetch = FetchType.LAZY,mappedBy = "autorizacoes")
     private Set<Usuario> usuarios;
@@ -46,9 +38,15 @@ public class Autorizacao {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public Set<Usuario> getUsuarios() {
+        return usuarios;
     }
 
-    
+    public void setUsuarios(Set<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }    
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,7 +19,7 @@ import br.gov.sp.fatec.springbootloja.repository.AutorizacaoRepository;
 import br.gov.sp.fatec.springbootloja.repository.UsuarioRepository;
 
 @Service
-public class SegurancaServiceImpl implements SegurancaService {
+public class AutenticacaoServiceImpl implements AutenticacaoService {
 
     @Autowired
     UsuarioRepository usuarioRepo;
@@ -48,6 +49,8 @@ public class SegurancaServiceImpl implements SegurancaService {
         return usuario;
     }
 
+    @Override
+    @PreAuthorize("isAuthenticated()") 
     public List<Usuario> buscarTodosUsuarios() {
 
         return usuarioRepo.findAll();
@@ -56,7 +59,7 @@ public class SegurancaServiceImpl implements SegurancaService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario usuario = usuarioRepo.findbyNome(username);
+        Usuario usuario = usuarioRepo.findByNome(username);
         if (usuario == null) {
             throw new UsernameNotFoundException("Usuário " + username + " não encontrado! ");
         }
@@ -66,5 +69,6 @@ public class SegurancaServiceImpl implements SegurancaService {
                     .toArray(new String[usuario.getAutorizacoes().size()]))
                 .build();
     }
+    
 
 }

@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import br.gov.sp.fatec.springbootloja.entity.Usuario;
 
-public interface SegurancaService extends UserDetailsService {
+public interface AutenticacaoService extends UserDetailsService {
 
     public Usuario cadastrarUsuario(String nome, String senha, String autorizacao);
 

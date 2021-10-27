@@ -33,9 +33,7 @@ public class UsuarioController{
     @JsonView(View.MarcaResumo.class)
     @PostMapping
     public Usuario cadastrarNovoUsuario(@RequestBody Usuario usuario){
-        //return autenticacaoService.cadastrarUsuario(usuario.getNome(),usuario.getSenha(),usuario.getAutorizacoes());
-        return autenticacaoService.cadastrarUsuario(usuario.getNome(),usuario.getSenha(),usuario.getAutorizacoes().getClass().getName());
-        //produto.getMarca().getId()
+        return autenticacaoService.cadastrarUsuario(usuario.getNome(),usuario.getSenha(),"ROLE_USUARIO");
     }
 
 }

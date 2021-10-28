@@ -49,8 +49,9 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
 
         return usuario;
     }
+    
+    //@PreAuthorize("isAuthenticated()") 
     @Override
-    @PreAuthorize("isAuthenticated()") 
     public List<Usuario> buscarTodosUsuarios() {
 
         return usuarioRepo.findAll();

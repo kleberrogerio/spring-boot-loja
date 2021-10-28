@@ -71,7 +71,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 	}
 
 	@Override
-	@PreAuthorize("isAuthenticated()")
+	@PreAuthorize("hasRole('ADMIN')")
 	public List<Produto> pesquisarTodosProdutos() {
 		return produtoRepo.findAll();
 	}

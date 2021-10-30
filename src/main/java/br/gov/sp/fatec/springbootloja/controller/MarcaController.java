@@ -68,7 +68,7 @@ public class MarcaController {
 
     @JsonView(View.MarcaResumo.class)
     @DeleteMapping(value="/{id}")
-    public void deletaMarca(@PathVariable("id") Long id) {
+    public void deletarMarca(@PathVariable("id") Long id) {
         marcaService.deleteMarca(id);    
     }
 

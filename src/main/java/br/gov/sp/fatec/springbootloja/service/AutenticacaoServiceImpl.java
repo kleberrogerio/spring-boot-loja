@@ -93,29 +93,22 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
     public void deletarUsuario (Long id){
                 usuarioRepo.deleteById(id);
     }
-    /*
+    
     @Override
     @PreAuthorize("isAuthenticated()")
     public Usuario atualizarUsuario (Long id, String nome, String email ,String senha, String autorizacao){
-      Autorizacao aut = autorizacaoRepo.findByNome(autorizacao);
-      if (aut == null) {
-          aut = new Autorizacao();
-          aut.setNome(autorizacao);
-          autorizacaoRepo.save(aut);
-      }
-
-      Usuario usuario = new Usuario();
+      
+      Usuario usuario = usuarioRepo.findById(id).get();
       usuario.setNome(nome);
       usuario.setEmail(email);
       usuario.setSenha(passEncorder.encode(senha));
       usuario.setAutorizacoes(new HashSet<Autorizacao>());
-      usuario.getAutorizacoes().add(aut);
       usuarioRepo.save(usuario);
 
       return usuario;
   }
-*/
-    @Override
+    
+  @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Usuario usuario = usuarioRepo.findByNome(username);
         if (usuario == null) {

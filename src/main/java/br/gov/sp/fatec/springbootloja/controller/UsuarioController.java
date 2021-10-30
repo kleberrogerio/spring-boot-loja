@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,12 +59,12 @@ public class UsuarioController{
       return autenticacaoService.buscarAutorizacaoPorNome(nome);
     }
 
-    /*@JsonView(View.UsuarioCompleto.class)
+    @JsonView(View.UsuarioCompleto.class)
     @PutMapping(value="/{id}")
-    public Usuario atualizarUsuario(@PathVariable("id") Long id, @RequestBody Usuario marca){
-        return autenticacaoService.atualizarMarca(id,usuario.getNome());
+    public Usuario atualizarUsuario(@PathVariable("id") Long id, @RequestBody Usuario usuario){
+        return autenticacaoService.atualizarUsuario(id,usuario.getNome(),usuario.getEmail() ,usuario.getSenha(),"ROLE_USUARIO");
     }
-*/
+
     @JsonView(View.UsuarioCompleto.class)
     @DeleteMapping(value="/{id}")
     public void deletarUsuario(@PathVariable("id") Long id) {

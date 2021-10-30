@@ -64,6 +64,7 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
         if (usuario == null) {
             throw new UsernameNotFoundException("Usuário " + username + " não encontrado! ");
         }
+        //System.out.println(usuario.getAutorizacoes());
         return User.builder().username(username).password(usuario.getSenha())
                 .authorities(usuario.getAutorizacoes().stream()
                     .map(Autorizacao::getNome).collect(Collectors.toList())

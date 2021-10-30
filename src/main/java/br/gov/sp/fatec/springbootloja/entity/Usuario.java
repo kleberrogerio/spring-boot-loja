@@ -39,7 +39,8 @@ public class Usuario {
     @Column(name="usr_senha")
     private String senha;
 
-    @ManyToMany(fetch=FetchType.LAZY)
+    @JsonView(View.UsuarioResumo.class)
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name="uau_usuario_autorizacao",
         joinColumns = { @JoinColumn(name="usr_id") },
         inverseJoinColumns = { @JoinColumn(name = "aut_id") })

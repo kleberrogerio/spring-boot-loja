@@ -27,7 +27,7 @@ public class MarcaServiceTest {
 		marca.setNome("IBM");
 		marcaRepo.save(marca);
 		
-		marcaService.excluirMarcaPorNome(marca);
+		marcaService.excluirMarca(marca);
 		
 	    assertNull(marcaRepo.findByNomeIgnoreCase("IBM"));
 		

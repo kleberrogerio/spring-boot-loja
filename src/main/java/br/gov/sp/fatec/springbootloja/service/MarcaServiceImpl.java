@@ -20,7 +20,7 @@ public class MarcaServiceImpl implements MarcaService{
 
     @Override
     @PreAuthorize("isAuthenticated()")
-    public void excluirMarcaPorNome (Marca marca){
+    public void excluirMarca (Marca marca){
 		marcaRepo.delete(marca);	
     }
 	

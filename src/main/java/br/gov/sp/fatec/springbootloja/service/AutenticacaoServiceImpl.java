@@ -50,7 +50,7 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
         return usuario;
     }
     
-    //@PreAuthorize("isAuthenticated()") 
+    @PreAuthorize("isAuthenticated()") 
     @Override
     public List<Usuario> buscarTodosUsuarios() {
 

@@ -6,7 +6,7 @@ import br.gov.sp.fatec.springbootloja.entity.Marca;
 
 public interface MarcaService {
     
-    public void excluirMarca (Marca marca);
+    public void excluirMarcaPorNome (Marca marca);
 	
 	public Marca pesquisarPorIdMarca (Long id);
 

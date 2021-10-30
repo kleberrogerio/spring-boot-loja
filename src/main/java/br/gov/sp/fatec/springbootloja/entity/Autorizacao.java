@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import br.gov.sp.fatec.springbootloja.controller.View;
+
 @Entity
 @Table(name="aut_autorizacao")
 public class Autorizacao {
@@ -20,6 +24,7 @@ public class Autorizacao {
     @Column(name="aut_id")
     private Long id;
 
+    @JsonView(View.UsuarioResumo.class)
     @Column(name="aut_nome")
     private String nome;
 
@@ -48,5 +53,6 @@ public class Autorizacao {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }    
+    }
+    
 }

@@ -88,14 +88,11 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
       }
       throw new RegistroNaoEncontradoException("Autorização não encontrada!");
     }
-
-    
     @Override
     @PreAuthorize("isAuthenticated()")
-    public void deletarUsuario (Usuario usuario){
-      usuarioRepo.delete(usuario);	
+    public void deletarUsuario (Long id){
+                usuarioRepo.deleteById(id);
     }
-
     /*
     @Override
     @PreAuthorize("isAuthenticated()")

@@ -89,6 +89,26 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
       throw new RegistroNaoEncontradoException("Autorização não encontrada!");
     }
 
+    @Override
+    @PreAuthorize("isAuthenticated()")
+    public void deletarUsuario (Long id){
+                usuarioRepo.deleteById(id);
+    }
+    
+    @Override
+    @PreAuthorize("isAuthenticated()")
+    public Usuario atualizarUsuario (Long id, String nome, String email ,String senha, String autorizacao){
+      
+      Usuario usuario = usuarioRepo.findById(id).get();
+      usuario.setNome(nome);
+      usuario.setEmail(email);
+      usuario.setSenha(passEncorder.encode(senha));
+      usuario.setAutorizacoes(new HashSet<Autorizacao>());
+      usuarioRepo.save(usuario);
+
+      return usuario;
+  }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

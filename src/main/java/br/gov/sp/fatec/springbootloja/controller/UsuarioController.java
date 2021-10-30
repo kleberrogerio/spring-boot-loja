@@ -56,4 +56,17 @@ public class UsuarioController{
     public Autorizacao buscarAutorizacaoPorNome(@PathVariable("autorizacao") String nome) {
       return autenticacaoService.buscarAutorizacaoPorNome(nome);
     }
+
+    /*@JsonView(View.UsuarioCompleto.class)
+    @PutMapping(value="/{id}")
+    public Usuario atualizarUsuario(@PathVariable("id") Long id, @RequestBody Usuario marca){
+        return autenticacaoService.atualizarMarca(id,usuario.getNome());
+    }
+*/
+    @JsonView(View.UsuarioCompleto.class)
+    @DeleteMapping(value="/{id}")
+    public void deletarUsuario(@PathVariable("id") Long id) {
+      autenticacaoService.deletarUsuario(id); 
+    }
+
 }

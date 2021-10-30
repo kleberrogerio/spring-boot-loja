@@ -17,5 +17,9 @@ public interface AutenticacaoService extends UserDetailsService {
  
     public Usuario buscarUserById(Long id);
 
+    public void deletarUsuario (Long id);
+
+    //public Usuario atualizarUsuario (Long id,String nome,String email,  String senha, String autorizacao);
+
     public Autorizacao buscarAutorizacaoPorNome(String nome);
 }

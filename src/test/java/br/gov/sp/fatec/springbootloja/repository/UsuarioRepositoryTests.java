@@ -29,7 +29,6 @@ public class UsuarioRepositoryTests {
     void findByNomeTest(){
         Usuario usuario = new Usuario();
         usuario.setNome("Teste");
-        usuario.setEmail("teste@email.com");
         usuario.setSenha("123");
         usuarioRepo.save(usuario);
 
@@ -40,11 +39,10 @@ public class UsuarioRepositoryTests {
     void findByNomeContainsOrEmailContains(){
         Usuario usuario = new Usuario();
         usuario.setNome("Teste");
-        usuario.setEmail("teste@email.com");
         usuario.setSenha("123");
         usuarioRepo.save(usuario);
 
-        assertFalse(usuarioRepo.findByNomeContainsOrEmailContains("est", "lalala").isEmpty());
+        assertFalse(usuarioRepo.findByNomeContainsOrSenhaContains("est", "lalala").isEmpty());
     }
 
     @Test
@@ -56,7 +54,6 @@ public class UsuarioRepositoryTests {
 
         Usuario usuario = new Usuario();
         usuario.setNome("Teste");
-        usuario.setEmail("teste@email.com");
         usuario.setSenha("123");
         usuario.setAutorizacoes(new HashSet<Autorizacao>());
         usuario.getAutorizacoes().add(autorizacao);

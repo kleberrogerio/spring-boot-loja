@@ -36,7 +36,6 @@ public class AutorizacaoRepositoryTests {
 
         Usuario usuario = new Usuario();
         usuario.setNome("Teste");
-        usuario.setEmail("teste@email.com");
         usuario.setSenha("123");
         usuario.setAutorizacoes(new HashSet<Autorizacao>());
         usuario.getAutorizacoes().add(autorizacao);

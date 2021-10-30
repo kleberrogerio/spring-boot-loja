@@ -31,7 +31,7 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
     private PasswordEncoder passEncorder;
 
     @Transactional
-    public Usuario cadastrarUsuario(String nome, String email ,String senha, String autorizacao) {
+    public Usuario cadastrarUsuario(String nome,String senha, String autorizacao) {
         Autorizacao aut = autorizacaoRepo.findByNome(autorizacao);
         if (aut == null) {
             aut = new Autorizacao();
@@ -41,7 +41,6 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
 
         Usuario usuario = new Usuario();
         usuario.setNome(nome);
-        usuario.setEmail(email);
         usuario.setSenha(passEncorder.encode(senha));
         usuario.setAutorizacoes(new HashSet<Autorizacao>());
         usuario.getAutorizacoes().add(aut);
@@ -51,7 +50,7 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
     }
 
     @Override
-    @PreAuthorize("isAuthenticated()") 
+    @PreAuthorize("hasRole('ADMIN')")
     public List<Usuario> buscarTodosUsuarios() {
 
         return usuarioRepo.findAll();
@@ -59,17 +58,17 @@ public class AutenticacaoServiceImpl implements AutenticacaoService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario usuario = usuarioRepo.findByNome(username);
-        if (usuario == null) {
-            throw new UsernameNotFoundException("Usuário " + username + " não encontrado! ");
-        }
-        return User.builder().username(username).password(usuario.getSenha())
-                .authorities(usuario.getAutorizacoes().stream()
-                    .map(Autorizacao::getNome).collect(Collectors.toList())
-                    .toArray(new String[usuario.getAutorizacoes().size()]))
-                .build();
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    Usuario usuario = usuarioRepo.findByNome(username);
+    if (usuario == null) {
+      throw new UsernameNotFoundException("Usuário " + username + " não encontrado!");
     }
+    return User.builder().username(username).password(usuario.getSenha())
+        .authorities(usuario.getAutorizacoes().stream()
+            .map(Autorizacao::getNome).collect(Collectors.toList())
+            .toArray(new String[usuario.getAutorizacoes().size()]))
+        .build();
+  }
     
 
 }

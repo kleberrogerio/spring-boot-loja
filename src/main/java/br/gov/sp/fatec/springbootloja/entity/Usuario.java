@@ -31,10 +31,6 @@ public class Usuario {
     @Column(name="usr_nome")
     private String nome;
 
-    @Column(name="usr_email")
-    private String email;
-
-    
     @JsonView(View.UsuarioResumo.class)
     @Column(name="usr_senha")
     private String senha;
@@ -67,14 +63,6 @@ public class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getSenha() {

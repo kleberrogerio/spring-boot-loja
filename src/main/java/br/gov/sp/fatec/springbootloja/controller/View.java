@@ -6,8 +6,15 @@ public class View {
 
     public static class MarcaCompleto extends MarcaResumo{}
 
-    public static class ProdutoResumo{}
+    public static class ProdutoResumo{}  
 
-    public static class ProdutoCompleto extends ProdutoResumo{}
+    public static class ProdutoCompleto extends ProdutoResumo{}  
+
+    public static class UsuarioResumo{}
     
+    public static class UsuarioCompleto extends UsuarioResumo{}  
+    
+    public static class AutorizacaoResumo{}
 }
+
+

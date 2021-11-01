@@ -1,7 +1,10 @@
+drop schema loja;
+
+drop user 'user'@'localhost';
+
 create schema loja;
 
 use loja;
-
 
 create user 'user'@'localhost' identified by 'pass123';
 

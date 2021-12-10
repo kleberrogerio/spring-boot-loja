@@ -36,6 +36,7 @@ public class Produto {
 	@Column(name ="pro_preco")
 	private BigDecimal preco;
 	
+	@JsonView(View.ProdutoResumo.class)
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "mar_id")
 	private Marca marca;
